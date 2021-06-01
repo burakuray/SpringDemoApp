@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name="categories")
 @Entity
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","products"})
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","products"}) //loop'a girmemesi için bu anotasyonu kullan
 public class Category {
 
 	@Id

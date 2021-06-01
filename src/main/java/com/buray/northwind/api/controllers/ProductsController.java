@@ -14,6 +14,7 @@ import com.buray.northwind.business.abstracts.ProductService;
 import com.buray.northwind.core.utilities.results.DataResult;
 import com.buray.northwind.core.utilities.results.Result;
 import com.buray.northwind.entities.concretes.Product;
+import com.buray.northwind.entities.dtos.ProductWithCategoryDto;
 
 @RestController
 @RequestMapping("/api/products")
@@ -60,6 +61,16 @@ public class ProductsController {
 	@GetMapping("/getallDesc")
 	public DataResult<List<Product>> getAllSorted(){
 		return this.productService.getAllSorted();
+	}
+	
+	@GetMapping("/getByNameAndCategoryList")
+	public DataResult<List<Product>> getByNameAndCategory(String productName, int categoryId){
+		return this.productService.getByNameAndCategory(productName,categoryId);
+	}
+	
+	@GetMapping("/getProductWithCategoryDetails")
+	public DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails(){
+		return this.productService.getProductWithCategoryDetails();
 	}
 	
 }
